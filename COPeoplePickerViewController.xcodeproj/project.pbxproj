@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52EAF5E417662289006D8A6B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EAF5E317662289006D8A6B /* Default-568h@2x.png */; };
 		DC3CFB461440C73200B11E92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3CFB451440C73200B11E92 /* UIKit.framework */; };
 		DC3CFB481440C73200B11E92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3CFB471440C73200B11E92 /* Foundation.framework */; };
 		DC3CFB4A1440C73200B11E92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3CFB491440C73200B11E92 /* CoreGraphics.framework */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52EAF5E317662289006D8A6B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		DC3CFB411440C73200B11E92 /* COPeoplePickerViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = COPeoplePickerViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3CFB451440C73200B11E92 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DC3CFB471440C73200B11E92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -57,6 +59,7 @@
 		DC3CFB361440C73200B11E92 = {
 			isa = PBXGroup;
 			children = (
+				52EAF5E317662289006D8A6B /* Default-568h@2x.png */,
 				DC3CFB4B1440C73200B11E92 /* COPeoplePickerViewController */,
 				DC3CFB441440C73200B11E92 /* Frameworks */,
 				DC3CFB421440C73200B11E92 /* Products */,
@@ -159,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC3CFB501440C73200B11E92 /* InfoPlist.strings in Resources */,
+				52EAF5E417662289006D8A6B /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
