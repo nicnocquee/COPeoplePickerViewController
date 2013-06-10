@@ -167,8 +167,9 @@ COSynth(shadowLayer)
 
 - (void)done:(id)sender {
 #pragma unused (sender)
-  if ([self.delegate respondsToSelector:@selector(peoplePickerViewControllerDidFinishPicking:)]) {
-    [self.delegate peoplePickerViewControllerDidFinishPicking:self];
+  id<COPeoplePickerViewControllerDelegate> delegate = self.delegate;
+  if ([delegate respondsToSelector:@selector(peoplePickerViewControllerDidFinishPicking:)]) {
+    [delegate peoplePickerViewControllerDidFinishPicking:self];
   }
 }
 
@@ -498,7 +499,8 @@ static NSString *kCOTokenFieldDetectorString = @"\u200B";
 
 - (void)addContact:(id)sender {
 #pragma unused (sender)
-  [self.tokenFieldDelegate tokenFieldDidPressAddContactButton:self];
+  id<COTokenFieldDelegate> tokenFieldDelegate = self.tokenFieldDelegate;
+  [tokenFieldDelegate tokenFieldDidPressAddContactButton:self];
 }
 
 - (CGFloat)computedRowHeight {
@@ -638,12 +640,13 @@ static BOOL containsString(NSString *haystack, NSString *needle) {
 #pragma unused (sender)
   NSString *searchText = self.textWithoutDetector;
   NSArray *matchedRecords = [NSArray array];
+  id<COTokenFieldDelegate> tokenFieldDelegate = self.tokenFieldDelegate;
   if (searchText.length > 2) {
     // Generate new search dict only after a certain delay
     static NSDate *lastUpdated = nil;;
     static NSMutableArray *records = nil;
     if (records == nil || [lastUpdated timeIntervalSinceDate:[NSDate date]] < -10) {
-      ABAddressBookRef ab = [self.tokenFieldDelegate addressBookForTokenField:self];
+      ABAddressBookRef ab = [tokenFieldDelegate addressBookForTokenField:self];
       NSArray *people = CFBridgingRelease(ABAddressBookCopyArrayOfAllPeople(ab));
       records = [NSMutableArray new];
       for (id obj in people) {
@@ -671,7 +674,7 @@ static BOOL containsString(NSString *haystack, NSString *needle) {
     // Generate results to pass to the delegate
     matchedRecords = [records objectsAtIndexes:resultSet];
   }
-  [self.tokenFieldDelegate tokenField:self updateAddressBookSearchResults:matchedRecords];
+  [tokenFieldDelegate tokenField:self updateAddressBookSearchResults:matchedRecords];
 }
 
 #pragma mark - UITextFieldDelegate
