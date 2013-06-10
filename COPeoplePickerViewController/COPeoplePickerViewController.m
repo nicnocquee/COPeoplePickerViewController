@@ -860,7 +860,11 @@ COSynth(container)
                                                       identifier:ABMultiValueGetIdentifierAtIndex(emails, i)];
     [addresses addObject:email];
   }
-  CFRelease(emails);
+  
+  if (emails != NULL) {
+    CFRelease(emails);
+  }
+
   return [NSArray arrayWithArray:addresses];
 }
 
