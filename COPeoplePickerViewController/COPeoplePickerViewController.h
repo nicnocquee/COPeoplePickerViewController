@@ -29,7 +29,7 @@
  Note that name information will always be shown if available.
  
  DEVNOTE: currently only supports email (extend if you need more)
-*/
+ */
 @property (nonatomic, copy) NSArray *displayedProperties;
 
 /*!
@@ -57,6 +57,18 @@
 @property (nonatomic, readonly) ABRecordRef record;
 
 - (id)initWithABRecordRef:(ABRecordRef)record;
+
+@end
+
+@interface CORecordEmail : NSObject {
+@private
+    ABMultiValueRef         emails_;
+    ABMultiValueIdentifier  identifier_;
+}
+@property (nonatomic, readonly) NSString *label;
+@property (nonatomic, readonly) NSString *address;
+
+- (id)initWithEmails:(ABMultiValueRef)emails identifier:(ABMultiValueIdentifier)identifier;
 
 @end
 
